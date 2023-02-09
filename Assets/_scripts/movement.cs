@@ -24,21 +24,22 @@ public class movement : MonoBehaviour
 
     void Move()
     {
+        float turn = Input.GetAxis("Horizontal");
         if (Input.GetKey(KeyCode.W))
         {
-            rig.AddForce(Vector3.forward * moveSpeed);
+            rig.AddRelativeForce(Vector3.forward * moveSpeed);
         }
         if (Input.GetKey(KeyCode.S))
         {
-            rig.AddForce(Vector3.back * moveSpeed);
+            rig.AddRelativeForce(Vector3.back * moveSpeed);
         }
         if (Input.GetKey(KeyCode.A))
         {
-            rig.AddForce(Vector3.left * moveSpeed);
+            rig.AddRelativeTorque(Vector3.up * rotSpeed * turn);
         }
         if (Input.GetKey(KeyCode.D))
         {
-            rig.AddForce(Vector3.right * moveSpeed);
+            rig.AddRelativeTorque(Vector3.up * rotSpeed * turn);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {

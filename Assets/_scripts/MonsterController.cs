@@ -18,7 +18,11 @@ public class MonsterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        if (alive)
+        {
+            Move();
+        }
+        
     }
 
     virtual public void Move()

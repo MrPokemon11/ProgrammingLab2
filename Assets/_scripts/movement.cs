@@ -9,7 +9,9 @@ public class movement : MonoBehaviour
     public float rotSpeed;
 
     private Rigidbody rig;
-
+    public static float playerX;
+    public static float playerY;
+    public static float playerZ;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +21,13 @@ public class movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        MovePlayer();
+        playerX = rig.transform.position.x;
+        playerY = rig.transform.position.y;
+        playerZ = rig.transform.position.z;
     }
 
-    void Move()
+    void MovePlayer()
     {
         float turn = Input.GetAxis("Horizontal");
         if (Input.GetKey(KeyCode.W))
